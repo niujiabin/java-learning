@@ -1,9 +1,11 @@
 package com.qunar.dubboexercise;
 
+import java.io.Serializable;
+
 /**
  * @author : jiabin.niu
  **/
-public class User {
+public class User implements Serializable{
 
     private String name;
 

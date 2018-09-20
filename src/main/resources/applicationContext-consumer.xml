@@ -8,18 +8,18 @@
         ">
 
 
+    <dubbo:application name="demo_dubbo_consumer" owner="jiabin.niu"/>
     <!-- 使用zookeeper注册中心暴露服务地址 -->
-    <dubbo:registry address="zookeeper://127.0.0.1:2181" />
+    <dubbo:registry address="zookeeper://127.0.0.1:2181" protocol="zookeeper"/>
 
-    <bean id="callBack" class="com.qunar.dubboexercise.DemoCallBackImpl"/>
+    <bean id="notify" class="com.qunar.dubboexercise.DemoNotify"/>
     <!-- 生成远程服务代理，可以像使用本地bean一样使用demoService -->
     <dubbo:reference id="demoServiceRef"
                      interface="com.qunar.dubboexercise.DemoService" >
         <!-- 设置为异步调用  return=true代表有返回值 但是会增加维护Future的成本 return=false没有维护future的成本-->
-        <dubbo:method name="getUsers"  async="true"
-
-
-        />
+        <dubbo:method name="getUsers"  async="true"  onreturn="notify.onReturn" onthrow="notify.onThrow" />
     </dubbo:reference>
 
+
+    <dubbo:reference id="callbackService" interface="com.qunar.dubboexercise.CallBackService"/>
 </beans>

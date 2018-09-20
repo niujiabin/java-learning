@@ -13,11 +13,12 @@ public class DemoServiceImpl implements DemoService {
 
     private final Logger logger = LoggerFactory.getLogger(DemoServiceImpl.class);
 
-    public String sayHello(String name) {
+   /* //public String sayHello(String name) {
         return "Hello : " + name;
-    }
+    }*/
 
-    public List<User> getUsers() throws InterruptedException {
+    @Override
+    public List<User> getUsers() {
         List<User> users = new ArrayList<>();
         users.add(new User());
         return users;

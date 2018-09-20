@@ -7,17 +7,17 @@ import java.util.List;
  **/
 public interface DemoService {
 
-    /**
+   /* *//**
      * 打招呼
      * @param name
      * @return
-     */
-    public String sayHello(String name);
+     *//*
+    public String sayHello(String name);*/
 
     /**
      * 获取所有用户信息
      * @return
      */
-    public List<User> getUsers() throws InterruptedException;
+    public List<User> getUsers();
 
 }
